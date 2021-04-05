@@ -1,3 +1,4 @@
+const path = require('path')
 const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
@@ -25,7 +26,8 @@ mongoose
 
 // middlewares
 app.use(morgan('dev'));
-app.use(express.json({ limit: '50mb' }));
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 // routes middlewares

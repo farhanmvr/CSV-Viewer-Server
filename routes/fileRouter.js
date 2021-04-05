@@ -1,8 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
-const { convertFile } = require('../controllers/fileController');
+const {
+  fileProcess,
+  convertFile,
+  saveToDB,
+} = require('../controllers/fileController');
 
-router.post('/', convertFile);
+router.post('/', fileProcess, convertFile, saveToDB);
 
 module.exports = router;
